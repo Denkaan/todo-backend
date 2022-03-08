@@ -1,28 +1,37 @@
 package com.todolist.todo.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "tasks")
 public class Task {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "description")
     private String description;
+    @Column(name = "date")
     private String date;
+    @Column(name = "time")
     private String time;
 
     public Task() {
     }
 
-    public int getId() {
+    public Task(String title, String description, String date, String time) {
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.time = time;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -56,5 +65,10 @@ public class Task {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Task [id=" + id + ", title=" + title + ", description=" + description + ", date=" + date + ", time=" + time + "]";
     }
 }

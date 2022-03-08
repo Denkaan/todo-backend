@@ -12,10 +12,17 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User getUser(User user) {
+    public boolean getUser(User user) {
         System.out.println("Service GET *****");
-        return userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
+        boolean status;
+        try {
+            status = userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword()) != null ? true : false;
+        } catch (NonUniqueResultException nre) {
+            return true;
+        }
+        return status;
     }
+
     public boolean getUserByEmail(String email, String password) {
         boolean email_present;
         boolean password_present;
