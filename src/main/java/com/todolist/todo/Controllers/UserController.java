@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     private boolean getCurrentUser(@RequestBody User user) {
         System.out.println("GET User by username and password *****");
         return userService.getUser(user);
