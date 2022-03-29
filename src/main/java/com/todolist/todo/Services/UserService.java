@@ -13,7 +13,6 @@ public class UserService {
     private UserRepository userRepository;
 
     public boolean getUser(User user) {
-        System.out.println("Service GET *****");
         boolean status;
         try {
             status = userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword()) != null ? true : false;

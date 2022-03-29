@@ -15,13 +15,11 @@ public class UserController {
 
     @PostMapping("/login")
     private boolean getCurrentUser(@RequestBody User user) {
-        System.out.println("GET User by username and password *****");
         return userService.getUser(user);
     }
 
     @GetMapping("/login/{email}/{password}")
     private boolean findUserByEmail(@PathVariable String email, @PathVariable String password) {
-        System.out.println("GET User by username and password *****");
         return userService.getUserByEmail(email, password);
     }
 

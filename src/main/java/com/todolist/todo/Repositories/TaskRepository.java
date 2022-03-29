@@ -10,6 +10,8 @@ import java.util.List;
 public interface TaskRepository extends JpaRepository<Task, Long> {
     List<Task> findByTitle(String title);
 
+    List<Task> findByAssigned(boolean assigned);
+
     /*
     List<Task> findAllByEmail(String email);
 

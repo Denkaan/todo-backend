@@ -41,6 +41,11 @@ public class TaskController {
         return taskService.getTaskByTitle(title);
     }
 
+    @GetMapping("/taskByAssigned/{assigned}")
+    public List<Task> findTaskByAssigned(@PathVariable boolean assigned) {
+        return taskService.getTaskByAssigned(assigned);
+    }
+
     //PUT
     @PutMapping("/update")
     public Task updateTask(@RequestBody Task task)

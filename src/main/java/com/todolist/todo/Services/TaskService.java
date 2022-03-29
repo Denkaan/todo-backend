@@ -32,6 +32,10 @@ public class TaskService {
         return taskRepository.findByTitle(title);
     }
 
+    public List<Task> getTaskByAssigned(boolean assigned) {
+        return taskRepository.findByAssigned(assigned);
+    }
+
     /*
     public List<Task> getTasksForUser(String email) {
         return taskRepository.findAllByEmail(email);

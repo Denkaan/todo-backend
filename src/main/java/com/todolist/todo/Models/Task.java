@@ -16,15 +16,18 @@ public class Task {
     private String date;
     @Column(name = "time")
     private String time;
+    @Column(name = "assigned")
+    private boolean assigned;
 
     public Task() {
     }
 
-    public Task(String title, String description, String date, String time) {
+    public Task(String title, String description, String date, String time, boolean assigned) {
         this.title = title;
         this.description = description;
         this.date = date;
         this.time = time;
+        this.assigned = assigned;
     }
 
     public long getId() {
@@ -67,8 +70,16 @@ public class Task {
         this.time = time;
     }
 
+    public boolean isAssigned() {
+        return assigned;
+    }
+
+    public void setAssigned(boolean assigned) {
+        this.assigned = assigned;
+    }
+
     @Override
     public String toString() {
-        return "Task [id=" + id + ", title=" + title + ", description=" + description + ", date=" + date + ", time=" + time + "]";
+        return "Task [id=" + id + ", title=" + title + ", description=" + description + ", date=" + date + ", time=" + time + ", assigned" + assigned + "]";
     }
 }
